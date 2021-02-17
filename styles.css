@@ -1,0 +1,35 @@
+/* resets the default margin and padding values of all HTML elements */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* robust universal border-box fix */
+:root {
+  /* The :root pseudo-class is equivalent to the HTML type selector */
+  box-sizing: border-box;
+  font-size: 0.75em; /* In this case, it uses the browser's default size (16px), or 0.875 if desired font size is 14px (14/16) */
+}
+/* In general, use rems for font sizes, pixels for borders, and ems for most other measures, especially paddings, margins and border radius (and percentages for container widths when necessary) */
+
+@media (min-width: 800px) {
+  :root {
+    font-size: 0.875em; /* Applies only to screens 800 px and wider, overriding the original value */
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    font-size: 1em; /* Applies only to screens 1200 px and larger, overriding the original value */
+  }
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+/* to convert a third-party component into a content-box when necessary by targeting its top-level container */
+.third-party-component {
+  box-sizing: content-box;
+}
